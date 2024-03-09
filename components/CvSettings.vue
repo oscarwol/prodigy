@@ -48,7 +48,8 @@
       <br>
 
       <modal :titulo="t1" :description="d1" ref="modal"></modal>
-      <ModalCropper ref="ModalCropper" :titulo="$t('photo-profile')"  @update-avatar-image="updateFormSettingsPhoto"></ModalCropper>
+      <ModalCropper ref="ModalCropper" :titulo="$t('photo-profile')" @update-avatar-image="updateFormSettingsPhoto(formSettings, $event)">
+      </ModalCropper>
 
       <ModalInput :titulo="titulo" :nombre="nombre" :education="education" :experience="experience" ref="ModalInput">
       </ModalInput>
@@ -403,7 +404,7 @@ export default Vue.extend({
             (this.$refs.ModalCropper as any).launchCropper(file);
             formSettings.photo = (this.$refs.ModalCropper as any).sendImageToParent();
 
-            
+
           }
 
 
@@ -415,8 +416,8 @@ export default Vue.extend({
         };
       }
     },
-    updateFormSettingsPhoto(newImage) {
-      this.formSettings.photo = newImage;
+    updateFormSettingsPhoto(formSettings: any, newImage: any) {
+      formSettings.photo = newImage;
     },
 
     borrarFoto(formSettings: any) {
@@ -729,15 +730,14 @@ export default Vue.extend({
 
 
 
-.scrollbar
-{
-	margin-left: 30px;
-	float: left;
-	height: 300px;
-	width: 65px;
-	background: #F5F5F5;
-	overflow-y: scroll;
-	margin-bottom: 25px;
+.scrollbar {
+  margin-left: 30px;
+  float: left;
+  height: 300px;
+  width: 65px;
+  background: #F5F5F5;
+  overflow-y: scroll;
+  margin-bottom: 25px;
 }
 
 /*
@@ -754,30 +754,30 @@ export default Vue.extend({
 
 /* Track */
 ::-webkit-scrollbar-track {
-	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-	background-color: #F5F5F5;
-	border-radius: 10px;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5;
+  border-radius: 10px;
 }
- 
+
 /* Handle */
 ::-webkit-scrollbar-thumb {
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear,
-									   left bottom,
-									   left top,
-									   color-stop(0.44, rgb(122,153,217)),
-									   color-stop(0.72, rgb(73,125,189)),
-									   color-stop(0.86, rgb(28,58,148)));
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear,
+      left bottom,
+      left top,
+      color-stop(0.44, rgb(122, 153, 217)),
+      color-stop(0.72, rgb(73, 125, 189)),
+      color-stop(0.86, rgb(28, 58, 148)));
 }
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-	border-radius: 10px;
-	background-image: -webkit-gradient(linear,
-									   left bottom,
-									   left top,
-									   color-stop(0.44, rgb(102,133,207)),
-									   color-stop(0.72, rgb(3,105,149)),
-									   color-stop(0.86, rgb(8,38,128)));
+  border-radius: 10px;
+  background-image: -webkit-gradient(linear,
+      left bottom,
+      left top,
+      color-stop(0.44, rgb(102, 133, 207)),
+      color-stop(0.72, rgb(3, 105, 149)),
+      color-stop(0.86, rgb(8, 38, 128)));
 }
 </style>
