@@ -11,7 +11,7 @@
                     <!--header-->
                     <div class="flex items-start justify-between p-5 border-b border-solid border-slate-200 rounded-t">
                         <h5 class="text-2xl font-semibold">
-                            {{titulo}}
+                            {{ titulo }}
                         </h5>
                         <button
                             class="p-1 ml-auto bg-transparent border-0 text-black opacity-5 float-right text-3xl leading-none font-semibold outline-none focus:outline-none"
@@ -117,5 +117,4 @@ export default {
 
 </script>
 
-<style>
-</style>
+<style></style>

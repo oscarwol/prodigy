@@ -1,14 +1,10 @@
 <template>
-  <div id="cv" class="font-normal relative flex justify-center w-full bg-white" style="overflow: scroll !important;">  
-    <div
-      tabindex="0"
-      aria-label="CV preview"
-      :class="['cv', 'bg-white', { blur: isLoading }]"
-    >
-      <div class="cv__side w-1/3 cv__color-selected" >
+  <div id="cv" class="font-normal relative flex justify-center w-full bg-white" style="overflow: auto !important;">
+    <div tabindex="0" aria-label="CV preview" :class="['cv', 'bg-white', { blur: isLoading }]">
+      <div class="cv__side w-1/3 cv__color-selected">
         <div class="container">
-          <img class="cv__job-photo center-cropped" alt="Foto de perfil" id="photocv" :src="formSettings.photo"/>
-  </div>
+          <img class="cv__job-photo center-cropped" alt="Foto de perfil" id="photocv" :src="formSettings.photo" />
+        </div>
 
         <br />
         <h2 class="cv__name">
@@ -29,8 +25,8 @@
                 <use href="@/assets/sprite.svg#phone"></use>
               </svg>
               <a :href="phoneNumberHref" rel="noopener">{{
-                formSettings.phoneNumber
-              }}</a>
+      formSettings.phoneNumber
+    }}</a>
             </div>
             <div v-if="formSettings.email" class="cv__icon-wrapper">
               <svg class="cv__icon">
@@ -51,11 +47,7 @@
         <section class="cv__section">
           <h4 class="cv__section-title">{{ $t('professional-skills') }}</h4>
           <ul class="cv__tags">
-            <li
-              v-for="skill in formSettings.jobSkills"
-              :key="`preview${skill}`"
-              class="cv__tag"
-            >
+            <li v-for="skill in formSettings.jobSkills" :key="`preview${skill}`" class="cv__tag">
               {{ skill }}
             </li>
           </ul>
@@ -65,10 +57,7 @@
         <section class="cv__section">
           <h4 class="cv__section-title">{{ $t('soft-skills') }}</h4>
           <ul class="cv__list">
-            <li
-              v-for="skill in formSettings.softSkills"
-              :key="`preview${skill}`"
-            >
+            <li v-for="skill in formSettings.softSkills" :key="`preview${skill}`">
               {{ skill }}
             </li>
           </ul>
@@ -78,16 +67,10 @@
         <section class="cv__section">
           <h4 class="cv__section-title">{{ $t('languages') }}</h4>
           <ul class="cv__bar">
-            <li
-              v-for="lang in formSettings.languages"
-              :key="`preview${lang.lang}`"
-            >
-              {{ lang.lang + " - ("+lang.level+")" }}
+            <li v-for="lang in formSettings.languages" :key="`preview${lang.lang}`">
+              {{ lang.lang + " - (" + lang.level + ")" }}
               <div class="cv__bar-level" :style="{ width: '100%' }">
-                <span
-                  class="cv__bar-level cv__bar-level--in"
-                  :style="{ width: lang.level }"
-                ></span>
+                <span class="cv__bar-level cv__bar-level--in" :style="{ width: lang.level }"></span>
               </div>
             </li>
           </ul>
@@ -101,42 +84,30 @@
               <svg class="cv__icon">
                 <use href="@/assets/sprite.svg#linkedin-color"></use>
               </svg>
-              <a
-                target="_blank"
-                rel="noopener"
-                :href="`https://linkedin.com/in/${formSettings.linkedin}`"
-                >{{ `linkedin.com/in/${formSettings.linkedin}` }}</a
-              >
+              <a target="_blank" rel="noopener" :href="`https://linkedin.com/in/${formSettings.linkedin}`">{{
+      `linkedin.com/in/${formSettings.linkedin}` }}</a>
             </div>
             <div v-if="formSettings.twitter" class="cv__icon-wrapper">
               <svg class="cv__icon">
                 <use href="@/assets/sprite.svg#twitter-color"></use>
               </svg>
-              <a
-                target="_blank"
-                rel="noopener"
-                :href="`https://twitter.com/${formSettings.twitter}`"
-                >{{ `twitter.com/${formSettings.twitter}` }}</a
-              >
+              <a target="_blank" rel="noopener" :href="`https://twitter.com/${formSettings.twitter}`">{{
+      `twitter.com/${formSettings.twitter}` }}</a>
             </div>
             <div v-if="formSettings.github" class="cv__icon-wrapper">
               <svg class="cv__icon">
                 <use href="@/assets/sprite.svg#github-color"></use>
               </svg>
-              <a
-                target="_blank"
-                rel="noopener"
-                :href="`https://github.com/${formSettings.github}`"
-                >{{ `github.com/${formSettings.github}` }}</a
-              >
+              <a target="_blank" rel="noopener" :href="`https://github.com/${formSettings.github}`">{{
+      `github.com/${formSettings.github}` }}</a>
             </div>
             <div v-if="formSettings.website" class="cv__icon-wrapper">
               <svg class="cv__icon">
                 <use href="@/assets/sprite.svg#website"></use>
               </svg>
               <a target="_blank" rel="noopener" :href="formSettings.website">{{
-                formSettings.website
-              }}</a>
+      formSettings.website
+    }}</a>
             </div>
           </div>
         </section>
@@ -191,19 +162,12 @@
         <hr v-if="formSettings.displayEducation" class="cv__bar" />
 
         <!-- EDUCATION -->
-        <section
-          v-if="formSettings.displayEducation"
-          class="cv__section cv__section--main w-full"
-        >
+        <section v-if="formSettings.displayEducation" class="cv__section cv__section--main w-full">
           <h4 class="cv__section-title cv__section-title--main">
             {{ $t('education') }}
           </h4>
           <ul class="cv__event mt-3">
-            <li
-              v-for="edu in education"
-              :key="edu.title"
-              class="cv__event-elem"
-            >
+            <li v-for="edu in education" :key="edu.title" class="cv__event-elem">
               <h5 class="cv__section-title cv__section-title--sm">
                 {{ edu.title }}
               </h5>
@@ -231,19 +195,12 @@
         <hr v-if="formSettings.displayProjects" class="cv__bar" />
 
         <!-- PROJECTS -->
-        <section
-          v-if="formSettings.displayProjects"
-          class="cv__section cv__section--main w-full"
-        >
+        <section v-if="formSettings.displayProjects" class="cv__section cv__section--main w-full">
           <h4 class="cv__section-title cv__section-title--main">
             {{ $t('projects') }}
           </h4>
           <ul class="cv__event mt-3">
-            <li
-              v-for="project in projects"
-              :key="project.title"
-              class="cv__event-elem"
-            >
+            <li v-for="project in projects" :key="project.title" class="cv__event-elem">
               <h5 class="cv__section-title cv__section-title--sm">
                 {{ project.title }}
               </h5>
@@ -252,8 +209,8 @@
                 <span>
                   {{ formatDate(project.from) }} -
                   <template v-if="project.current">{{
-                    $t('current')
-                  }}</template>
+      $t('current')
+    }}</template>
                   <template v-else>{{ formatDate(project.to) }}</template>
                 </span>
               </div>
@@ -270,7 +227,7 @@
         </section>
         <!-- // PROJECTS -->
 
-        </div>
+      </div>
 
     </div>
   </div>
@@ -351,6 +308,7 @@ export default Vue.extend({
 p {
   @apply leading-relaxed;
 }
+
 .cv {
   @apply flex text-gray-800 shadow-lg text-sm font-normal mt-6;
   width: 21cm;
@@ -368,20 +326,23 @@ p {
   @media screen and (min-width: 425px) {
     transform: scale(0.65);
   }
+
   @media screen and (min-width: 768px) {
     transform: scale(0.9);
   }
+
   @media screen and (min-width: 1024px) {
     transform: scale(0.7);
   }
+
   &__side {
     @apply px-6 py-10 bg-gray-100 bg-opacity-100;
   }
 
   &__job-photo {
-  border-radius: 100%;
-  max-height: 13rem;
-  border: 0.2rem white solid;
+    border-radius: 100%;
+    max-height: 13rem;
+    border: 0.2rem white solid;
   }
 
   &__name {
@@ -395,23 +356,26 @@ p {
 
   &__section {
     @apply mt-6;
+
     &--main {
       @apply mt-0 text-sm;
     }
   }
 
 
-  
-&__color-selected {
-      background-color:  var(--primary) !important;
-      color: #fff !important;
-    }
+
+  &__color-selected {
+    background-color: var(--primary) !important;
+    color: #fff !important;
+  }
 
   &__section-title {
     @apply text-lg uppercase mb-2 font-bold tracking-wide;
+
     &--sm {
       @apply text-sm;
     }
+
     &--main {
       color: var(--primary);
     }
@@ -421,7 +385,7 @@ p {
     @apply flex flex-row font-light;
     align-items: center;
 
-    & + & {
+    &+& {
       margin-top: 5px;
     }
   }
@@ -451,13 +415,16 @@ p {
     list-style: none;
     padding: 0;
     margin: 0;
+
     li {
       padding-left: 1em;
       text-indent: -1em;
     }
+
     li:first-child {
       @apply mt-1;
     }
+
     li::before {
       content: '\2022';
       padding-right: 0.2em;
@@ -471,13 +438,16 @@ p {
     padding: 0;
     margin: 0;
     --border-opacity: 0 !important;
+
     li {
       @apply flex flex-col;
     }
-    li + li {
+
+    li+li {
       @apply mt-3;
     }
   }
+
   &__bar-level {
     @apply rounded-full mr-2;
     position: relative;
@@ -495,7 +465,7 @@ p {
   }
 
   &__event {
-    &-elem + &-elem {
+    &-elem+&-elem {
       @apply mt-6;
     }
   }
@@ -508,8 +478,4 @@ p {
 .blur {
   filter: blur(5px);
 }
-
-
-
 </style>
-

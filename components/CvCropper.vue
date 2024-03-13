@@ -2,7 +2,7 @@
   <div class="crop-image-dialog">
     <VueCropper v-if="showCropper" ref="cropper" class="image-container" :src="chosenImage" :guides="true"
       :background="false" :view-mode="3" drag-mode="move" :auto-crop-area="0.8"></VueCropper>
-    
+
   </div>
 </template>
 
@@ -71,31 +71,35 @@ export default {
       }
     },
 
-    
+
   },
 }
 </script>
 
 <style scoped>
-
 .crop-image-dialog {
   position: relative;
-  max-width: 25rem; /* Ancho máximo */
-  max-height: 25rem; /* Alto máximo */
-  overflow: auto; /* Agrega scroll si la imagen es más grande que el contenedor */
+  max-width: 25rem;
+  /* Ancho máximo */
+  max-height: 25rem;
+  /* Alto máximo */
+  overflow: auto;
+  /* Agrega scroll si la imagen es más grande que el contenedor */
 }
 
 .image-container {
-  width: 100%; /* Ocupa todo el ancho del contenedor */
-  height: auto; /* Ajusta la altura automáticamente para mantener la relación de aspecto */
+  width: 100%;
+  /* Ocupa todo el ancho del contenedor */
+  height: auto;
+  /* Ajusta la altura automáticamente para mantener la relación de aspecto */
 }
 
 @media only screen and (max-width: 768px) {
   .crop-image-dialog {
-    max-width: calc(70vw - 20px); /* Ajusta el ancho máximo del modal */
-    max-height: calc(70vh - 20px); /* Ajusta el alto máximo del modal */
+    max-width: calc(70vw - 20px);
+    /* Ajusta el ancho máximo del modal */
+    max-height: calc(70vh - 20px);
+    /* Ajusta el alto máximo del modal */
   }
 }
-
-
 </style>

@@ -2,7 +2,7 @@
   <div class="main">
     <cv-settings id="settings" class="settings"></cv-settings>
     <cv-preview></cv-preview>
-    
+
   </div>
 </template>
 
@@ -99,6 +99,7 @@ export default Vue.extend({
   .main {
     @apply flex h-full;
   }
+
   .settings {
     @apply overflow-y-auto w-5/12;
   }

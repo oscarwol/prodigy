@@ -48,7 +48,8 @@
       <br>
 
       <modal :titulo="t1" :description="d1" ref="modal"></modal>
-      <ModalCropper ref="ModalCropper" :titulo="$t('photo-profile')" @update-avatar-image="updateFormSettingsPhoto(formSettings, $event)">
+      <ModalCropper ref="ModalCropper" :titulo="$t('photo-profile')"
+        @update-avatar-image="updateFormSettingsPhoto(formSettings, $event)">
       </ModalCropper>
 
       <ModalInput :titulo="titulo" :nombre="nombre" :education="education" :experience="experience" ref="ModalInput">
@@ -445,7 +446,7 @@ export default Vue.extend({
         { name: 'pink', color: '#9D174D', darker: '#831843' },
         { name: 'blue', color: '#1E40AF', darker: '#1E3A8A' },
         { name: 'green', color: '#065F46', darker: '#064E3B' },
-        { name: 'black', color: '#1F2937', darker: '#111827' },
+        { name: 'black', color: '#000', darker: '#000' },
       ],
       languages: [
         { name: 'es-name', code: 'es' },
